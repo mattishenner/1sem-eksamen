@@ -1,7 +1,7 @@
 // Lottie animation
 var animation = bodymovin.loadAnimation({
     container: document.getElementById('animation-container'),
-    path: 'Comp3.json',
+    path: 'animations/frontpage-green.json',
     render: 'SVG',
     loop: true,
     autoplay: true,
