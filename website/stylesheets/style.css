@@ -1,0 +1,244 @@
+/* Import google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --main-color: #1151D9;
+    --main-accent: #8daced;
+    --black: #191919;
+    --gray: #696969;
+    --light-gray: #F1F1F1;
+    --margin: clamp(10px, 6vw, 110px);
+    --gap: clamp(5px, 3vw, 50px);
+    --blob1-color: #EDF1F7;
+    --blob2-color: #D3DDF2;
+}
+
+img{
+    max-inline-size: 100%;
+    block-size: auto;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;;
+    color: var(--black);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+nav{
+    margin: 50px var(--margin) 0px var(--margin);
+}
+
+main{
+    margin: 0px var(--margin);
+}
+
+.frontpage-landing{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#animation-container{
+    min-width: 400px;
+    min-height: 400px;
+    width: 700px;
+    height: auto;
+    position: relative;
+    left: 4vw;
+    transition: transform 200ms linear;
+}
+
+/* Sharpen SVG in google chrome */
+#animation-container > svg{
+    transform: unset !important; 
+} 
+
+.animation-background{
+    min-width: 400px;
+    min-height: 400px;
+    width: 700px;
+    height: auto;
+    position: absolute;
+    z-index: -1;
+}
+
+#blob1{
+    animation: blob 7s infinite alternate;
+    fill: var(--blob1-color);
+}
+#blob2{
+    animation: blob2 8s infinite alternate;
+    fill: var(--blob2-color);
+}
+
+.pre-title{
+    font-size: 1.25rem;
+    margin: 0px;
+    font-weight: 500;
+    color: var(--gray);
+}
+
+h1{
+    font-family: 'Space Grotesk';
+    font-size: clamp(5rem, 10vw, 7rem);
+    margin: 10px 0px;
+    line-height: clamp(5.5rem, 10vw, 7.5rem);
+}
+
+h2{
+    font-size: 2rem;
+    margin: 5px 0px;
+    color: var(--main-color);
+}
+
+a{
+    text-decoration: none;
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.blue-text{
+    color: var(--main-color);
+}
+
+#view-more-link{
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+a{
+    transition: color 220ms ease;
+    font-weight: 600;
+}
+
+a:hover{
+    color: var(--main-accent);
+}
+
+
+.frontpage-about{
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    margin-top: 60px;
+    background-color: var(--light-gray);
+    padding: 20px;
+}
+
+#portrait{
+    width: clamp(40%, 10vw, 100%);
+}
+
+#portrait-mobile{
+    background-image: url("/img/headshot.png");
+    display: none;
+}
+
+
+
+
+
+/* Scrolling animations */
+.hidden{ 
+    opacity: 0;
+    transition: all 700ms ease-in;
+    filter: blur(20px);
+}
+
+.hidden-slide1{ 
+    opacity: 0;
+    transform: translateX(-70%);
+    transition: all 500ms;
+
+}
+
+.hidden-slide2{ 
+    opacity: 0;
+    transform: translateX(-70%);
+    transition: all 700ms;
+
+}
+
+.hidden-slide3{ 
+    opacity: 0;
+    transform: translateX(-70%);
+    transition: all 900ms;
+
+}
+
+.show{ 
+    opacity: 1;
+    transform: translateX(0%);
+    filter: blur(0px);
+}
+
+
+@media only screen and (max-width: 900px){
+#animation-container{
+    min-width: 300px;
+    min-height: 300px;
+    left: 0vw;
+    margin: 0px auto;
+}
+
+.frontpage-landing{
+    margin-top: 40px;
+}
+
+
+}
+
+@media only screen and (max-width: 700px){
+    .frontpage-landing{
+        flex-wrap: wrap;
+    }
+
+    #animation-container{
+        width: 500px;
+    }
+
+    .frontpage-about{
+        flex-wrap: wrap;
+    }
+
+    .frontpage-about{
+        margin: 0px;
+    }
+
+    #portrait{
+        display: none;
+    }
+
+    #portrait-mobile{
+        margin-top: 50px;
+        display: block;
+        width: 100vw;
+        height: 200px;
+        background-position: 0px -20px;
+    }
+
+}
+
+
+@keyframes blob{
+    0%{
+        transform: scale(1) translate(45%, 50%) rotate(180deg);
+    }
+
+    100%{
+        transform: scale(1.01) translate(45%, 50%) rotate(180deg);
+    }
+}
+
+@keyframes blob2{
+    0%{
+        transform: scale(1) translate(55%, 50%) rotate(180deg);
+    }
+
+    100%{
+        transform: scale(1.01) translate(55%, 50%) rotate(180deg);
+    }
+}
