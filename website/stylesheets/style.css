@@ -51,23 +51,21 @@ main{
     transition: transform 200ms linear;
 }
 
-/* Sharpen SVG in google chrome */
+/* Sharpen SVG in animation */
 #animation-container > svg{
     transform: unset !important; 
 } 
 
 .animation-background{
-    min-width: 400px;
-    min-height: 400px;
-    width: 700px;
+    width: clamp(430px, 45vw, 700px);
     height: auto;
     position: absolute;
     z-index: -1;
 }
 
 img{
-max-inline-size: 100%;
-block-size: auto;
+    max-inline-size: 100%;
+    block-size: auto;
 }
 
 #blob1{
@@ -88,9 +86,9 @@ block-size: auto;
 
 h1{
     font-family: 'Space Grotesk';
-    font-size: clamp(5rem, 10vw, 7rem);
+    font-size: clamp(3rem, 10vw, 7rem);
     margin: 10px 0px;
-    line-height: clamp(5.5rem, 10vw, 7.5rem);
+    line-height: clamp(3.5rem, 10vw, 7.5rem);
 }
 
 h2{
@@ -181,17 +179,30 @@ a:hover{
 }
 
 
-@media only screen and (max-width: 900px){
-#animation-container{
-    min-width: 300px;
-    min-height: 300px;
-    left: 0vw;
-    margin: 0px auto;
+footer{
+    color: var(--gray);
+    text-align: center;
+    margin-top: 80px;
+    padding: 40px;
+    background-color: var(--light-gray);
 }
 
-.frontpage-landing{
-    margin-top: 40px;
-}
+
+@media only screen and (max-width: 900px){
+    #animation-container{
+        min-width: 300px;
+        min-height: 300px;
+        left: 0vw;
+        margin: 0px auto;
+    }
+
+    .frontpage-landing{
+        margin-top: 40px;
+    }
+
+    .animation-background{
+        width: clamp(360px, 45vw, 700px);
+    }
 
 
 }
@@ -203,6 +214,10 @@ a:hover{
 
     #animation-container{
         width: 500px;
+    }
+
+    .animation-background{
+        width: clamp(200px, 85vw, 700px);
     }
 
     .frontpage-about{
@@ -218,19 +233,21 @@ a:hover{
     }
 
     #portrait-mobile{
-        margin-top: 50px;
+        margin-top: 10px;
         display: block;
         width: 100vw;
         height: 200px;
-        background-position: 0px -20px;
+        background-position: center -25px;
     }
+
+    
 
 }
 
 
 @keyframes blob{
     0%{
-        transform: scale(1) translate(45%, 50%) rotate(180deg);
+        transform: scale(1) translate(40%, 50%) rotate(180deg);
     }
 
     100%{
@@ -240,10 +257,10 @@ a:hover{
 
 @keyframes blob2{
     0%{
-        transform: scale(1) translate(55%, 50%) rotate(180deg);
+        transform: scale(1) translate(60%, 50%) rotate(180deg);
     }
 
     100%{
-        transform: scale(1.01) translate(55%, 50%) rotate(180deg);
+        transform: scale(1.01) translate(65%, 50%) rotate(180deg);
     }
 }
